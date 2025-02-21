@@ -1,0 +1,2 @@
+E:/Route-Alex3/News/android/app/.cxx/Debug/2pb2o662/x86/CMakeFiles/edit_cache.dir
+E:/Route-Alex3/News/android/app/.cxx/Debug/2pb2o662/x86/CMakeFiles/rebuild_cache.dir

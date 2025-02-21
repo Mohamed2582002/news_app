@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:news/Ui/Search/search_screen.dart';
 import 'package:news/Ui/home/drawer/app_theme_provider.dart';
 import 'package:news/Ui/home/home_screen.dart';
 import 'package:news/Utils/app_theme.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName :(context) => HomeScreen() ,
+        SearchScreen.routeName :(context) => SearchScreen() ,
         //NewsWebView.routeName:(context)=> NewsWebView(url: ''),
 
       },

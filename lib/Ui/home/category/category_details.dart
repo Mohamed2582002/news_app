@@ -57,49 +57,5 @@ class _CategoryDetailsState extends State<CategoryDetails> {
       }) ,
     );
 
-      // FutureBuilder<SourceResponse?>(
-      //     future: ApiManager.getSources(widget.category.id),
-      //     builder: (context ,snapshot){
-      //       if(snapshot.connectionState == ConnectionState.waiting){
-      //         return Center(
-      //           child: CircularProgressIndicator(color: Colors.grey,),);
-      //       }else if(snapshot.hasError){
-      //         return Center(
-      //           child: Column(
-      //             children: [
-      //               Text('SomeThing went Wrong',style: Theme.of(context).textTheme.headlineLarge, ),
-      //               ElevatedButton(
-      //                   onPressed: (){
-      //                     ApiManager.getSources(widget.category.id);
-      //                     setState(() {
-      //
-      //                     });
-      //                   },
-      //                   child: Text('try again',style: Theme.of(context).textTheme.headlineLarge,)),
-      //             ],
-      //           ),
-      //         );
-      //       }
-      //       if(snapshot.data!.status != 'ok'){
-      //         return Center(
-      //           child: Column(
-      //             children: [
-      //               Text('SomeThing went Wrong',style: Theme.of(context).textTheme.headlineLarge, ),
-      //               ElevatedButton(
-      //                   onPressed: (){
-      //                     ApiManager.getSources(widget.category.id);
-      //                     setState(() {
-      //
-      //                     });
-      //                   },
-      //                   child: Text('try again',style: Theme.of(context).textTheme.headlineLarge,)),
-      //             ],
-      //           ),
-      //         );
-      //       }
-      //       var sourcesList = snapshot.data!.sources! ;
-      //       return SourceTabWidget(sourcesList: sourcesList);
-      //     }),
-
   }
 }

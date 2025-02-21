@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:news/Utils/app_colors.dart';
+import 'package:news/api/api_constants.dart';
 import 'package:news/model/NewsResponse.dart';
+import 'package:url_launcher/url_launcher.dart' show canLaunchUrl, launchUrl;
+import 'package:url_launcher/url_launcher_string.dart';
 
 class NewsItem extends StatelessWidget {
 
@@ -13,7 +16,8 @@ class NewsItem extends StatelessWidget {
   Widget build(BuildContext context) {
    var height = MediaQuery.of(context).size.height ;
    var width = MediaQuery.of(context).size.width ;
-    return InkWell(
+    return
+      InkWell(
       onTap: (){
         showModalBottomSheet(
           backgroundColor: Colors.white,
@@ -45,7 +49,7 @@ class NewsItem extends StatelessWidget {
                    padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
                 ),
                   onPressed: (){
-            // Navigator.of(context).pushNamed(NewsWebView.routeName,arguments: news.url);
+                    launchUrl(Uri.parse(news.url??""),mode: LaunchMode.inAppWebView) ;
                   },
                   child: Text('View Full Articel',style: TextStyle(color: Colors.white),)),
                    
@@ -53,7 +57,8 @@ class NewsItem extends StatelessWidget {
           );
         });
       },
-      child: Container(
+      child:
+      Container(
         margin: EdgeInsets.symmetric(horizontal: width*0.04,vertical: height*0.01),
         padding:  EdgeInsets.symmetric(horizontal: width*0.02,vertical: height*0.01),
         decoration: BoxDecoration(

@@ -9,7 +9,7 @@ import 'package:news/model/SourceResponse.dart';
 class ApiManager {
 // https://newsapi.org/v2/top-headlines/sources?apiKey=API_KEY &apiKey=b66b871133c24516803144ea15da7892
 
- static Future<SourceResponse?> getSources (String categoryId)async {
+  static Future<SourceResponse?> getSources (String categoryId)async {
    Uri url  = Uri.https(
        ApiConstants.baseUrl ,
        EndPoints.sourceApi ,
@@ -61,4 +61,25 @@ static Future<NewsResponse> getNewsBySourceId (String sourceId)async {
      }
    }
  }
+
+  static Future<NewsResponse> searchNews ({required String searchQuery,required int pageNumber})async {
+    Uri url = Uri.https(ApiConstants.baseUrl ,ApiConstants.everyThing ,
+        {
+          //'apiKey' : ApiConstants.apiKey ,
+          'q' : searchQuery ,
+          'page': pageNumber.toString(),
+          'pageSize': "10",
+
+        }) ;
+    try{
+      var response = await http.get(url,headers: {
+        "Authorization": "Bearer${ApiConstants.apiKey}"
+      }) ;
+
+      return NewsResponse.fromJson(jsonDecode(response.body)) ;
+    }catch(e){
+      throw e ;
+    }
+
+  }
 }
